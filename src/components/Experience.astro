@@ -1,0 +1,32 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+import Link from "./icons/Link.astro";
+const EXPERIENCE = [
+  {
+    date: "Actualmente...",
+    title: "Estudiante de Desarrollo de Software",
+    company: "Politecnico Internacional de Colombia",
+    description:
+      "Estudiante de desarrollo de software apasionado por el backend y el desarrollo de aplicaciones (Web y moviles)",
+    link: "https://github.com/Sam-Dev0",
+  },
+  {
+    date: "2025",
+    title: "Proyecto Clima App",
+    company: "Proyecto Personal",
+    description:
+      "Una aplicacion sencilla y responsiva para ver el clima de cualquier ciudad del mundo, consumiendo una API publica para obtener los datos meteorologicos en tiempo real.",
+    link: "https://sam-dev0.github.io/Weather-APP/",
+  },
+];
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
