@@ -29,17 +29,27 @@ import SocialPill from "@/components/SocialPill.astro";
   </h3>
 
   <style>
+    /* Por defecto (modo claro) */
+    :root {
+      --caret-color: #000; /* negro */
+    }
+
+    /* En modo oscuro (cuando html tiene class="dark") */
+    html.dark {
+      --caret-color: #fff; /* blanco */
+    }
+
     .typewriter {
       display: inline-block;
       overflow: hidden;
-      border-right: 0.15em solid #fff;
+      border-right: 0.15em solid var(--caret-color);
       white-space: nowrap;
       letter-spacing: 0.1em;
       line-height: 1.2;
       padding-bottom: 0.1em;
       animation:
-        typing 3s steps(20, end) forwards,
-        blink-caret 0.75s step-end infinite;
+        typing 3.5s steps(20, end) forwards,
+        blink-caret 0.95s step-end infinite;
     }
 
     @keyframes typing {
@@ -51,14 +61,13 @@ import SocialPill from "@/components/SocialPill.astro";
       }
     }
 
-    /* Animación del cursor */
     @keyframes blink-caret {
       from,
       to {
         border-color: transparent;
       }
       50% {
-        border-color: #fff;
+        border-color: var(--caret-color);
       }
     }
   </style>
