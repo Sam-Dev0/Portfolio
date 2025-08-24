@@ -1,9 +1,10 @@
 ---
-const personalImageAlt = "Miguel Ángel";
+const personalImageAlt = "Samuel Molina";
 import Badge from "@/components/Badge.astro";
 import GitHub from "@/components/icons/GitHub.astro";
 import GitHubIcon from "@/components/icons/GitHub.astro";
 import MailIcon from "@/components/icons/Mail.astro";
+import System from "@/components/icons/System.astro";
 import SocialPill from "@/components/SocialPill.astro";
 ---
 
@@ -76,6 +77,10 @@ import SocialPill from "@/components/SocialPill.astro";
     </SocialPill>
     <SocialPill href="https://github.com/Sam-Dev0">
       <GitHubIcon class="size-4" /> GitHub
+    </SocialPill>
+    <SocialPill href="/CV_Samuel.pdf" target="_blank" rel="noopener noreferrer">
+      <MailIcon class="size-4" />
+      CV
     </SocialPill>
   </nav>
 </div>
