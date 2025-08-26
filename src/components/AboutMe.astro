@@ -1,26 +1,26 @@
 ---
 const personalImageAlt = "Samuel con gafas de sol y camiseta negra sonriendo";
+import Java from "./icons/java.astro";
+import Javascript from "./icons/Javascript.astro";
+import Typescript from "./icons/typescript.astro";
+import Astro_dark from "./icons/astro_dark.astro";
+import Tailwindcss from "./icons/tailwindcss.astro";
+import Kotlin from "./icons/Kotlin.astro";
+import CodeIcon from "@/components/icons/Code.astro"; // ícono del título
+
+const TECHNOLOGIES = [
+  { name: "Java", icon: Java, class: "bg-blue-900 text-white" },
+  { name: "JavaScript", icon: Javascript, class: "bg-yellow-400 text-black" },
+  { name: "TypeScript", icon: Typescript, class: "bg-blue-600 text-white" },
+  { name: "Kotlin", icon: Kotlin, class: "bg-purple-600 text-white" },
+  { name: "Astro", icon: Astro_dark, class: "bg-indigo-700 text-white" },
+  { name: "TailwindCSS", icon: Tailwindcss, class: "bg-cyan-600 text-white" },
+];
 ---
 
 <article
   class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row"
 >
-  <div
-    class="[&>p]:mb-4 [&>p>strong]:text-blue-500 dark:[&>p>strong]:text-blue-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
-  >
-    <p>
-      !Soy samuel¡Estudiantes de desarrollo de software apasionado por el
-      backend y el desarrollo de aplicaciones (Web y moviles)
-    </p>
-
-    <p>
-      Algunos de mis trabajos incluyen <strong>
-        una aplicacion sencilla y responsiva para ver el clima de cualquier
-        ciudad usando una api que este consume
-      </strong>
-    </p>
-  </div>
-
   <img
     width="200"
     height="200"
@@ -29,4 +29,51 @@ const personalImageAlt = "Samuel con gafas de sol y camiseta negra sonriendo";
     class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20"
     style="object-position: 50% 50%"
   />
+
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-blue-500 dark:[&>p>strong]:text-blue-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      !Soy samuel¡Estudiantes de Desarrollo de Software apasionado por el
+      backend y el desarrollo de aplicaciones (Web y moviles)
+    </p>
+    Algunos de mis trabajos incluyen <strong>
+      una aplicación sencilla y responsiva para ver el clima de cualquier ciudad
+      usando una API pública
+    </strong>
+  </div>
 </article>
+
+<section class="mt-10 pb-16">
+  <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+    <h3
+      class="flex items-center gap-2 text-2xl font-bold text-gray-800 dark:text-white"
+    >
+      <CodeIcon class="size-8 text-whiet-500" />
+      Tecnologías que estoy aprendiendo
+    </h3>
+  </h2>
+  <p class="mb-6">
+    Me encanta aprender nuevas tecnologías y mejorar mis habilidades de
+    programación. Algunas de las tecnologías que he utilizado y quiero mejorar
+    incluyen:
+  </p>
+  <ul class="flex flex-row flex-wrap gap-3">
+    {
+      TECHNOLOGIES.map((tech) => (
+        <li>
+          <span
+            class={`flex items-center gap-x-4 rounded-full text-sm py-2 px-4 bg-slate-800 text-white shadow-md hover:scale-105 transition-transform duration-200`}
+          >
+            {tech.icon && (
+              <div class="w-5 h-5 flex items-center justify-center relative top-[1px]">
+                <tech.icon class="w-full h-full object-contain" />
+              </div>
+            )}
+            <span class="ml-1">{tech.name}</span>
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
