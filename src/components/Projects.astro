@@ -37,7 +37,7 @@ const PROJECTS = [
       "Aplicación web sencilla y responsiva para consultar el clima de cualquier ciudad del mundo. Consume una API pública para obtener los datos meteorológicos en tiempo real. Desarrollada con HTML, CSS y Javascript utilizando la API gratuita OpenWeatherMap.",
     link: "https://sam-dev0.github.io/Weather-APP/",
     github: "https://github.com/Sam-Dev0/Weather-APP",
-    image: "projects/weatherapp.webp",
+    image: "/projects/weatherapp.webp",
     tags: [TAGS.HTML5, TAGS.CSS, TAGS.Javascript],
   },
   {
@@ -46,7 +46,7 @@ const PROJECTS = [
       "Aplicación móvil gratuita para gestionar y organizar tus juegos de mesa. Permite llevar un registro de las rondas, puntajes y participantes de tus partidas. Desarrollada con Kotlin.",
     link: "",
     github: "",
-    image: "projects/pep.webp",
+    image: "/projects/pep.webp",
     tags: [TAGS.Kotlin],
   },
 ];
@@ -58,12 +58,14 @@ const PROJECTS = [
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <!-- Imagen del proyecto -->
         <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <div class="relative flex flex-col items-center transition duration-500 ease-in-out transform shadow-xl overflow-hidden rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
             <img
               alt={title}
               class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
               loading="lazy"
+              decoding="async"
               src={image}
+              onerror="this.src='/projects/placeholder.webp'" 
             />
           </div>
         </div>
@@ -74,14 +76,14 @@ const PROJECTS = [
             {title}
           </h3>
 
-          <ul class="flex flex-row mt-2 mb-2 gap-x-2">
+          <ul class="flex flex-row mt-3 mb-3 gap-x-2 gap-y-2 flex-wrap">
             {tags.map((tag) => (
               <li>
                 <span
-                  class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}
+                  class={`flex items-center gap-2 rounded-full text-xs ${tag.class} py-1 px-3`}
                 >
-                  {tag.icon && <tag.icon class="size-4" />}
-                  {tag.name}
+                  {tag.icon && <tag.icon class="w-4 h-4" />}
+                  <span>{tag.name}</span>
                 </span>
               </li>
             ))}
