@@ -3,7 +3,8 @@ import GitHub from "./icons/GitHub.astro";
 import CSS from "./icons/CSS.astro";
 import Html5 from "./icons/Html5.astro";
 import Javascript from "./icons/Javascript.astro";
-import Kotlin from "./icons/Kotlin.astro";
+import Python from "./icons/Python.astro";
+import SQLite from "./icons/SQLite.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 
@@ -23,31 +24,35 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Javascript,
   },
-  Kotlin: {
-    name: "Kotlin",
+  Python: {
+     name: "Python", 
+     class: "bg-[#003159] text-white",
+     icon: Python,
+  },
+  SQLite: {
+    name: "SQLite",
     class: "bg-[#003159] text-white",
-    icon: Kotlin,
+    icon: SQLite,
   },
 };
 
 const PROJECTS = [
   {
-    title: "Weather app - Aplicación del clima",
+    title: "Weather app - Aplicacion Web del clima",
     description:
       "Aplicación web sencilla y responsiva para consultar el clima de cualquier ciudad del mundo. Consume una API pública para obtener los datos meteorológicos en tiempo real. Desarrollada con HTML, CSS y Javascript utilizando la API gratuita OpenWeatherMap.",
-    link: "https://sam-dev0.github.io/Weather-APP/",
+    link: "https://weather-app-six-beryl-98.vercel.app/",
     github: "https://github.com/Sam-Dev0/Weather-APP",
     image: "/projects/weatherapp.webp",
     tags: [TAGS.HTML5, TAGS.CSS, TAGS.Javascript],
   },
   {
-    title: "Table app - Aplicación para juegos de mesa",
+    title: "App de gestion y mantenimiento de computadores",
     description:
-      "Aplicación móvil gratuita para gestionar y organizar tus juegos de mesa. Permite llevar un registro de las rondas, puntajes y participantes de tus partidas. Desarrollada con Kotlin.",
-    link: "",
-    github: "",
+      "App de escritorio hecha con Python para el mantenimiento de computadores, con una base de datos hecha con SQLite para almacenar los datos haciendo una busqueda por el serial y/o su id determinado",
+    github: "https://github.com/Sam-Dev0/Hoja-De-vida-computadores",
     image: "/projects/pep.webp",
-    tags: [TAGS.Kotlin],
+    tags: [TAGS.Python, TAGS.SQLite],
   },
 ];
 ---
@@ -69,8 +74,7 @@ const PROJECTS = [
             />
           </div>
         </div>
-
-        <!-- Info del proyecto -->
+        
         <div class="w-full md:w-1/2 md:max-w-lg">
           <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
             {title}
@@ -78,15 +82,13 @@ const PROJECTS = [
 
           <ul class="flex flex-row mt-3 mb-3 gap-x-2 gap-y-2 flex-wrap">
             {tags.map((tag) => (
-              <li>
-                <span
-                  class={`flex items-center gap-2 rounded-full text-xs ${tag.class} py-1 px-3`}
-                >
-                  {tag.icon && <tag.icon class="w-4 h-4" />}
-                  <span>{tag.name}</span>
-                </span>
-              </li>
-            ))}
+         <li>
+             <span class={`flex items-center gap-2 rounded-full text-xs ${tag.class} py-1 px-3`}>
+               {tag.icon && <tag.icon class="w-4 h-4" />}
+      <span>{tag.name}</span>
+    </span>
+         </li>
+          ))}
           </ul>
 
           <div class="mt-2 text-gray-700 dark:text-gray-400">
